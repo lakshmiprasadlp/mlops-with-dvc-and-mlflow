@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 def main():
     # Load config
-    with open(r"src\yaml\StackingClassifier.yaml", "r") as f:
+    with open(r"yaml\StackingClassifier.yaml", "r") as f:
         config = yaml.safe_load(f)
 
     # Paths
