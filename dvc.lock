@@ -41,13 +41,13 @@ stages:
       nfiles: 2
     - path: src/model/model_build.py
       hash: md5
-      md5: df46eac2f5d8700371427aef3fa81a38
-      size: 2135
+      md5: 6cc0dc34003222c2326e3f735a38f361
+      size: 2676
     outs:
     - path: data/models
       hash: md5
-      md5: f0203139efcc183183d2ceb04d01b505.dir
-      size: 22499165
+      md5: 44afc08708f400828851b988dc7c0f31.dir
+      size: 42613754
       nfiles: 3
   data_preprocessing:
     cmd: python src/data/data_prep.py
@@ -90,8 +90,8 @@ stages:
     deps:
     - path: data/models
       hash: md5
-      md5: f0203139efcc183183d2ceb04d01b505.dir
-      size: 22499165
+      md5: 44afc08708f400828851b988dc7c0f31.dir
+      size: 42613754
       nfiles: 3
     - path: src/model/model_eval.py
       hash: md5
@@ -100,10 +100,10 @@ stages:
     outs:
     - path: data/metrics/confusion_matrices
       hash: md5
-      md5: e967dced3d1d96d746a750c25d0742aa.dir
-      size: 44281
+      md5: c74038a00237cec4497c96572e6e58fb.dir
+      size: 44665
       nfiles: 3
     - path: data/metrics/performance.json
       hash: md5
-      md5: 2f44d51c9c042413c47a7de3c7ae988a
-      size: 543
+      md5: e10725537921b13e29228e5dca708b96
+      size: 547

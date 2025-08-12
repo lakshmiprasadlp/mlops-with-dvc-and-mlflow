@@ -24,33 +24,61 @@ X_train = train_data.iloc[:, :-1].values
 y_train = train_data.iloc[:, -1].values
 
 # -----------------------
-# Model 1: RandomForestClassifier
+# Model 1: RandomForestClassifier (with custom hyperparameters)
 # -----------------------
-rf_clf = RandomForestClassifier(random_state=42)
+rf_clf = RandomForestClassifier(
+    n_estimators=200,        # number of trees
+    max_depth=15,           # limit depth
+    min_samples_split=4,    # min samples to split node
+    min_samples_leaf=2,     # min samples per leaf
+    bootstrap=True,         # use bootstrap sampling
+    random_state=42
+)
 rf_clf.fit(X_train, y_train)
 
 # -----------------------
-# Model 2: VotingClassifier
+# Model 2: VotingClassifier (with tuned base models)
 # -----------------------
+gb_clf = GradientBoostingClassifier(
+    n_estimators=150,
+    learning_rate=0.05,
+    max_depth=5,
+    min_samples_split=3,
+    min_samples_leaf=2,
+    random_state=42
+)
+
+svc_clf = SVC(
+    C=1.5,
+    kernel="rbf",
+    gamma="scale",
+    probability=True,
+    random_state=42
+)
+
 voting_clf = VotingClassifier(
     estimators=[
-        ("rf", RandomForestClassifier(random_state=42)),
-        ("gb", GradientBoostingClassifier(random_state=42)),
-        ("svc", SVC(probability=True, random_state=42))
+        ("rf", rf_clf),
+        ("gb", gb_clf),
+        ("svc", svc_clf)
     ],
     voting="soft"
 )
 voting_clf.fit(X_train, y_train)
 
 # -----------------------
-# Model 3: StackingClassifier
+# Model 3: StackingClassifier (with tuned base models)
 # -----------------------
 stacking_clf = StackingClassifier(
     estimators=[
-        ("rf", RandomForestClassifier(random_state=42)),
-        ("gb", GradientBoostingClassifier(random_state=42))
+        ("rf", rf_clf),
+        ("gb", gb_clf)
     ],
-    final_estimator=LogisticRegression(),
+    final_estimator=LogisticRegression(
+        solver="liblinear",
+        C=0.8,
+        max_iter=500
+    ),
     passthrough=False
 )
 stacking_clf.fit(X_train, y_train)
