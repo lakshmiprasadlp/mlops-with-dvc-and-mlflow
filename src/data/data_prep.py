@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+import os
+
+
+train_data = pd.read_csv(r"data\row\train.csv")
+test_data = pd.read_csv(r"data\row\test.csv")
+
+def fill_missing_with_mean(df):
+    try:
+        for column in df.columns:
+            if df[column].isnull().any():
+                median_value = df[column].mean()
+                df[column].fillna(median_value,inplace=True)
+        return df
+    except Exception as e:
+        raise Exception(f"Error Filling missing values with mean:{e}")
+    
+
+train_process_data=fill_missing_with_mean(train_data)
+test_process_data=fill_missing_with_mean(test_data)
+
+data_path=os.path.join("data","process")
+
+os.makedirs(data_path,exist_ok=True)
+
+train_process_data.to_csv(os.path.join(data_path,"train_process_data.csv"),index=False)
+test_process_data.to_csv(os.path.join(data_path,"test_process_data.csv"),index=False)

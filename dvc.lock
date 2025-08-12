@@ -1,0 +1,87 @@
+schema: '2.0'
+stages:
+  data_collection:
+    cmd: python src/data/data_collection.py
+    deps:
+    - path: src/data/data_collection.py
+      hash: md5
+      md5: fc8ada36e082aa5b0e1bfba971b2e09a
+      size: 480
+    outs:
+    - path: data/row
+      hash: md5
+      md5: c0c2d65c14a603e91e029fda3c344a5c.dir
+      size: 522262
+      nfiles: 2
+  dataprpprosing:
+    cmd: python src\data\data_prep.py
+    deps:
+    - path: data\row
+      hash: md5
+      md5: c0c2d65c14a603e91e029fda3c344a5c.dir
+      size: 522262
+      nfiles: 2
+    - path: src\data\data_prep.py
+      hash: md5
+      md5: 445f481b1c00c8f986d28854984eac72
+      size: 882
+    outs:
+    - path: data\process
+      hash: md5
+      md5: f88bde434ab086ba9104469de4e9d201.dir
+      size: 546895
+      nfiles: 2
+  model_build:
+    cmd: python src/model/model_build.py
+    deps:
+    - path: data/process
+      hash: md5
+      md5: f88bde434ab086ba9104469de4e9d201.dir
+      size: 546895
+      nfiles: 2
+    - path: src/model/model_build.py
+      hash: md5
+      md5: df46eac2f5d8700371427aef3fa81a38
+      size: 2135
+    outs:
+    - path: data/models
+      hash: md5
+      md5: f0203139efcc183183d2ceb04d01b505.dir
+      size: 22499165
+      nfiles: 3
+  data_preprocessing:
+    cmd: python src/data/data_prep.py
+    deps:
+    - path: data/row
+      hash: md5
+      md5: c0c2d65c14a603e91e029fda3c344a5c.dir
+      size: 522262
+      nfiles: 2
+    - path: src/data/data_prep.py
+      hash: md5
+      md5: 445f481b1c00c8f986d28854984eac72
+      size: 882
+    outs:
+    - path: data/process
+      hash: md5
+      md5: f88bde434ab086ba9104469de4e9d201.dir
+      size: 546895
+      nfiles: 2
+  data_preprocess:
+    cmd: python src/data/data_prep.py
+    deps:
+    - path: data/row
+      hash: md5
+      md5: c0c2d65c14a603e91e029fda3c344a5c.dir
+      size: 522262
+      nfiles: 2
+    - path: src/data/data_prep.py
+      hash: md5
+      md5: 445f481b1c00c8f986d28854984eac72
+      size: 882
+    outs:
+    - path: data/process
+      hash: md5
+      md5: f88bde434ab086ba9104469de4e9d201.dir
+      size: 546895
+      nfiles: 2
