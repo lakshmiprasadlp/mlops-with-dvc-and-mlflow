@@ -1,0 +1,37 @@
+description: >
+  Configuration for training a VotingClassifier with three RandomForestClassifier models.
+  Each RandomForest model can have its own hyperparameters. 
+  The voting parameter determines how the predictions are combined.
+
+available_options:
+  voting: ["hard", "soft"]
+  bootstrap: [true, false]
+  criterion: ["gini", "entropy", "log_loss"]
+  max_features: ["auto", "sqrt", "log2", null]
+
+estimators:
+  rf:
+    n_estimators: 200
+    max_depth: 15
+    min_samples_split: 4
+    min_samples_leaf: 2
+    bootstrap: true
+    random_state: 42
+  rf2:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 3
+    min_samples_leaf: 1
+    bootstrap: true
+    random_state: 42
+  rf3:
+    n_estimators: 150
+    max_depth: 20
+    min_samples_split: 5
+    min_samples_leaf: 2
+    bootstrap: false
+    random_state: 42
+
+voting: soft
+
+
