@@ -85,3 +85,25 @@ stages:
       md5: f88bde434ab086ba9104469de4e9d201.dir
       size: 546895
       nfiles: 2
+  model_eval:
+    cmd: python src/model/model_eval.py
+    deps:
+    - path: data/models
+      hash: md5
+      md5: f0203139efcc183183d2ceb04d01b505.dir
+      size: 22499165
+      nfiles: 3
+    - path: src/model/model_eval.py
+      hash: md5
+      md5: 08163e7b0f11aca2910d162c6120554f
+      size: 2059
+    outs:
+    - path: data/metrics/confusion_matrices
+      hash: md5
+      md5: e967dced3d1d96d746a750c25d0742aa.dir
+      size: 44281
+      nfiles: 3
+    - path: data/metrics/performance.json
+      hash: md5
+      md5: 2f44d51c9c042413c47a7de3c7ae988a
+      size: 543

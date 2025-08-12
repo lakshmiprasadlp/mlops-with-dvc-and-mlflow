@@ -28,6 +28,6 @@ stages:
       - data/models
       - src/model/model_eval.py
     outs:
-      - data/metrics/plots
+      - data/metrics/confusion_matrices
     metrics:
       - data/metrics/performance.json
