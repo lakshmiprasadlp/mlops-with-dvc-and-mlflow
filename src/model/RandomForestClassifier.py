@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 def main():
     # Load config
-    with open(r"src\model\RandomForestClassifier.yaml", "r") as f:
+    with open(r"src\yaml\RandomForestClassifier.yaml", "r") as f:
         config = yaml.safe_load(f)
 
     # Paths
