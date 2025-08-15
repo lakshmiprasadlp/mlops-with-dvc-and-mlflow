@@ -11,21 +11,21 @@ available_options:
 
 estimators:
   rf:
-    n_estimators: 200
+    n_estimators: 24
     max_depth: 15
     min_samples_split: 4
     min_samples_leaf: 2
     bootstrap: true
     random_state: 42
   rf2:
-    n_estimators: 100
+    n_estimators: 14
     max_depth: 10
     min_samples_split: 3
     min_samples_leaf: 1
     bootstrap: true
     random_state: 42
   rf3:
-    n_estimators: 150
+    n_estimators: 13
     max_depth: 20
     min_samples_split: 5
     min_samples_leaf: 2

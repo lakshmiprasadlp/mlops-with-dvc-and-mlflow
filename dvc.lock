@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/data/data_collection.py
       hash: md5
-      md5: fc8ada36e082aa5b0e1bfba971b2e09a
-      size: 480
+      md5: f12fe1b2fb251d02c2ff78f5e9dc87a3
+      size: 920
     outs:
     - path: data/row
       hash: md5
@@ -77,8 +77,8 @@ stages:
       nfiles: 2
     - path: src/data/data_prep.py
       hash: md5
-      md5: 445f481b1c00c8f986d28854984eac72
-      size: 882
+      md5: 8d2216efd5ed80722fd566c51a3ff552
+      size: 1270
     outs:
     - path: data/process
       hash: md5

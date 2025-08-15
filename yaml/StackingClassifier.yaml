@@ -11,21 +11,21 @@ available_options:
 
 estimators:
   rf:
-    n_estimators: 200
+    n_estimators: 23
     max_depth: 15
     min_samples_split: 4
     min_samples_leaf: 2
     bootstrap: true
     random_state: 42
   rf2:
-    n_estimators: 100
+    n_estimators: 13
     max_depth: 10
     min_samples_split: 3
     min_samples_leaf: 1
     bootstrap: true
     random_state: 42
   rf3:
-    n_estimators: 150
+    n_estimators: 13
     max_depth: 20
     min_samples_split: 5
     min_samples_leaf: 2
@@ -33,6 +33,6 @@ estimators:
     random_state: 42
 
 final_estimator:
-  solver: liblinear      # Algorithm to use in the optimization problem
-  C: 0.8                 # Inverse of regularization strength
-  max_iter: 500          # Maximum number of iterations to converge
+  solver: lbfgs      # Algorithm to use in the optimization problem
+  C: 0.6                 # Inverse of regularization strength
+  max_iter: 50          # Maximum number of iterations to converge
