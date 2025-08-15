@@ -9,9 +9,9 @@ available_options:
   random_state: "Any integer seed for reproducibility"
 
 model_params:
-  n_estimators: 200       # Number of trees in the forest
-  max_depth: 15           # Maximum depth of each tree
-  min_samples_split: 4    # Minimum samples required to split an internal node
-  min_samples_leaf: 2     # Minimum samples required to be at a leaf node
-  bootstrap: true         # Whether bootstrap samples are used when building trees
+  n_estimators: 20       # Number of trees in the forest
+  max_depth: 5           # Maximum depth of each tree
+  min_samples_split: 8    # Minimum samples required to split an internal node
+  min_samples_leaf: 4    # Minimum samples required to be at a leaf node
+  bootstrap: false         # Whether bootstrap samples are used when building trees
   random_state: 42        # Seed for reproducibility
